@@ -1,0 +1,11 @@
+{
+  "name": "BalihooDemo",
+  "version": "0.0.2",
+  "description": "A demo that will feature some of the new product focus.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Sword",
+  "license": "BSD-2-Clause"
+}
