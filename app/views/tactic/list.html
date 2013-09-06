@@ -23,15 +23,15 @@
               <td>{{tactic.name}}</td>
               <td>{{tactic.type}}</td>
               <td>
-          		<a class="btn btn-default btn-sm" data-toggle="modal" href="#myModal" ng-click="remove()">
+          		<a class="btn btn-default btn-sm" data-toggle="modal" href="#myModal_{{$index}}">
           			Delete  <span class="glyphicon glyphicon-remove"></span>
           		</a>
           		<!-- Modal -->
-				  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal fade" id="myModal_{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				    <div class="modal-dialog">
 				      <div class="modal-content">
 				        <div class="modal-body">
-				          Are you sure you want to delete this tactic? This action cannot be undone.
+				          Are you sure you want to delete {{tactic.name}}? This action cannot be undone.
 				        </div>
 				        <div class="modal-footer">
 				          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

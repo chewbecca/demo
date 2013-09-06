@@ -46,13 +46,23 @@ var tacticApp = angular.module('tactic', ['firebase']).
 
 
 
-tacticApp.controller('NewTacticCtrl',['$scope', 'angularFireCollection', 
+tacticApp.controller('NewTacticCtrl',['$scope', 'angularFireCollection','$location', 
 
-	function scopeAssignments($scope, angularFireCollection){
+	function scopeAssignments($scope, angularFireCollection, $location){
 
 		// So for creating a data bound to users I need to pass in the user object. Then namespace of the account ID when I create campaigns $scope.campaigns = userID.fbCampaigns;
 
 		$scope.tactics = angularFireCollection(fbTactics);
+//
+		//$scope.changeView = function(view){
+//
+		//	$location.path(view);
+//
+		//}
+
+		$scope.changeView = function(view) {
+			$location.path(view);
+		}
 
 }]);
 
@@ -70,13 +80,17 @@ tacticApp.controller('EditTacticCtrl',['$scope', 'angularFireCollection',
 
 
 
-tacticApp.controller('ListTacticCtrl',['$scope', 'angularFireCollection','$location', 
+tacticApp.controller('ListTacticCtrl',['$scope', 'angularFireCollection', 
 
-	function scopeAssignments($scope, angularFireCollection, $location){
+	function scopeAssignments($scope, angularFireCollection){
 
 		// So for creating a data bound to users I need to pass in the user object. Then namespace of the account ID when I create campaigns $scope.campaigns = userID.fbCampaigns;
 
 		//ng-submit="tactics.remove(tactic)"
+
+		$scope.remove = function(array, index){
+			array.splice(index, 1);
+		}
 
 		$scope.tactics = angularFireCollection(fbTactics);
 
