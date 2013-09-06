@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" ng-app="balihoo">
+<html lang="en">
 <head>
 	<title>Balihoo - Prototype</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
@@ -24,7 +24,7 @@
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="NavCtrl">
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li><a href="campaigns.html">Campaign Page</a></li>
       <li class="active"><a href="tactics.html">Tactic Page</a></li>
@@ -33,7 +33,7 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 
-<div class="container main-content">
+<div class="container main-content" ng-app="tactic">
 	<div class="row" ng-view></div>
 </div>
 

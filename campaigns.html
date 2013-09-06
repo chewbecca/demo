@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" ng-app="balihoo">
+<html lang="en">
 <head>
 	<title>Balihoo - Prototype</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
@@ -24,7 +24,7 @@
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="NavCtrl">
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="campaigns.html">Campaign Page</a></li>
       <li><a href="tactics.html">Tactic Page</a></li>
@@ -35,11 +35,27 @@
 
 
 
-<div class="container main-content">
+<div class="container main-content" ng-app="campaign">
+
+  <div class="well well-lg">
+    <h4>My Local Campaigns</h4>
+  </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-     <button type="button" class="btn btn-primary">Create Campaign</button>
+     <!-- Split button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-success">Create New</button>
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Campaign</a></li>
+        <li><a href="tactics.html#/new-tactic">Tactic</a></li>
+        <li><a href="#">Geography</a></li>
+        <li><a href="#">Target</a></li>
+      </ul>
+    </div>
 
      <form class="navbar-right" role="search">
       <div class="form-group">
@@ -47,9 +63,40 @@
       </div>
     </form>
   </div>
-  <div class="panel-body">
-    Panel content
-  </div>
+  <table class="table">
+          <thead>
+            <tr>
+              <th>Campaign Name</th>
+              <th>Prev > Next Delivery</th>
+              <th>Creative</th>
+              <th>Target</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
 </div>
 
 </div>

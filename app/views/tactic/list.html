@@ -1,0 +1,47 @@
+<div class="well well-lg">
+    <h4>My Tactics</h4>
+  </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+     <a href="#/new-tactic" class="btn btn-success">New Tactic</a>
+     <form class="navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form>
+  </div>
+  <table class="table">
+          <thead>
+            <tr>
+              <th>Tactic Name</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="tactic in tactics">
+              <td>{{tactic.name}}</td>
+              <td>{{tactic.type}}</td>
+              <td>
+          		<a class="btn btn-default btn-sm" data-toggle="modal" href="#myModal" ng-click="remove()">
+          			Delete  <span class="glyphicon glyphicon-remove"></span>
+          		</a>
+          		<!-- Modal -->
+				  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				    <div class="modal-dialog">
+				      <div class="modal-content">
+				        <div class="modal-body">
+				          Are you sure you want to delete this tactic? This action cannot be undone.
+				        </div>
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				          <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="tactics.remove(tactic)">Delete</button>
+				        </div>
+				      </div><!-- /.modal-content -->
+				    </div><!-- /.modal-dialog -->
+				  </div><!-- /.modal -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+</div>
