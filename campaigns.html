@@ -36,69 +36,7 @@
 
 
 <div class="container main-content" ng-app="campaign">
-
-  <div class="well well-lg">
-    <h4>My Local Campaigns</h4>
-  </div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-     <!-- Split button -->
-    <div class="btn-group">
-      <button type="button" class="btn btn-success">Create New</button>
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Campaign</a></li>
-        <li><a href="tactics.html#/new-tactic">Tactic</a></li>
-        <li><a href="#">Geography</a></li>
-        <li><a href="#">Target</a></li>
-      </ul>
-    </div>
-
-     <form class="navbar-right" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-    </form>
-  </div>
-  <table class="table">
-          <thead>
-            <tr>
-              <th>Campaign Name</th>
-              <th>Prev > Next Delivery</th>
-              <th>Creative</th>
-              <th>Target</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-</div>
-
+  <div class="row" ng-view></div>
 </div>
 
 </body>

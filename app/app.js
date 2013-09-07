@@ -1,28 +1,41 @@
 'use strict';
 
-// GLOBAL FIREBASE REFENCES
+// GLOBAL FIREBASE REFENCES (TODO: Research if it would be better to just call one Firebase and access the different directories from within the template.
 var fbMain = new Firebase("http://balihoo-demo.firebaseio.com/");
 var fbTactics = new Firebase("http://balihoo-demo.firebaseio.com/tactics");
-//var fbItems = new Firebase("http://scout-local.firebaseio.com/items");
+var fbCampaigns = new Firebase("http://balihoo-demo.firebaseio.com/campaigns");
 
 // CAMPAIGN MODULE
 var campaignApp = angular.module('campaign', ['firebase']).
 	config(['$routeProvider', function($routeProvider) {
-		$routeProvider.when('/home', {
-			templateUrl: 'app/views/home.html',
-			 controller: 'HomeCtrl',
-			 authRequired: false
+		$routeProvider.when('/new-campaign', {
+			templateUrl: 'app/views/campaign/new.html',
+			 controller: 'NewCampaignCtrl'
 		});
-		$routeProvider.otherwise({redirectTo: '/home'}); // TODO: Add Auth Conditional, also place all "whens" under one routeProvider
+		$routeProvider.when('/new-campaign', {
+			templateUrl: 'app/views/campaign/list.html',
+			 controller: 'ListTacticCtrl'
+		});
+		$routeProvider.otherwise({redirectTo: '/new-campaign'}); // TODO: Add Auth Conditional, also place all "whens" under one routeProvider
 	}]);
 
-campaignApp.controller('MyCtrl2',['$scope', 'angularFireCollection', 
+campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$location', 
+
+	function scopeAssignments($scope, angularFireCollection, $location){
+
+		$scope.campaigns = angularFireCollection(fbCampaigns);
+
+		$scope.changeView = function(view) {
+			$location.path(view);
+		}
+
+}]);
+
+campaignApp.controller('ListTacticCtrl',['$scope', 'angularFireCollection', 
 
 	function scopeAssignments($scope, angularFireCollection){
 
-		// So for creating a data bound to users I need to pass in the user object. Then namespace of the account ID when I create campaigns $scope.campaigns = userID.fbCampaigns;
-
-		$scope.items = angularFireCollection(fbItems);
+		$scope.campaigns = angularFireCollection(fbCampaigns);
 
 }]);
 
@@ -50,15 +63,7 @@ tacticApp.controller('NewTacticCtrl',['$scope', 'angularFireCollection','$locati
 
 	function scopeAssignments($scope, angularFireCollection, $location){
 
-		// So for creating a data bound to users I need to pass in the user object. Then namespace of the account ID when I create campaigns $scope.campaigns = userID.fbCampaigns;
-
 		$scope.tactics = angularFireCollection(fbTactics);
-//
-		//$scope.changeView = function(view){
-//
-		//	$location.path(view);
-//
-		//}
 
 		$scope.changeView = function(view) {
 			$location.path(view);
@@ -85,12 +90,6 @@ tacticApp.controller('ListTacticCtrl',['$scope', 'angularFireCollection',
 	function scopeAssignments($scope, angularFireCollection){
 
 		// So for creating a data bound to users I need to pass in the user object. Then namespace of the account ID when I create campaigns $scope.campaigns = userID.fbCampaigns;
-
-		//ng-submit="tactics.remove(tactic)"
-
-		$scope.remove = function(array, index){
-			array.splice(index, 1);
-		}
 
 		$scope.tactics = angularFireCollection(fbTactics);
 
