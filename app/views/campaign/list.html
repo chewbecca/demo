@@ -6,10 +6,10 @@
   <div class="panel-heading">
      <!-- Split button -->
     <div class="btn-group">
-      <button type="button" class="btn btn-success">Create New</button>
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+      <a href="#/new-campaign" class="btn btn-success">Create New</a>
+      <a class="btn btn-success dropdown-toggle" data-toggle="dropdown">
         <span class="caret"></span>
-      </button>
+      </a>
       <ul class="dropdown-menu" role="menu">
         <li><a href="#/new-campaign">Campaign</a></li>
         <li><a href="tactics.html#/new-tactic">Tactic</a></li>
@@ -27,7 +27,7 @@
           <thead>
             <tr>
               <th>Campaign Name</th>
-              <th>Prev > Next Delivery</th>
+              <th>Tactic</th>
               <th>Creative</th>
               <th>Target</th>
               <th>Status</th>
@@ -36,7 +36,10 @@
           <tbody>
             <tr ng-repeat="campaign in campaigns">
               <td>{{campaign.name}}</td>
-              <td>{{campaign.date}}</td>
+              <td ng-switch on="{{tactic.type}}">{{tactic.type}} - {{campaign.tactic}} 
+                <span ng-switch-when="Email" class="glyphicon glyphicon-evelope"></span>
+                <span ng-switch-when="SMS" class="glyphicon glyphicon-phone"></span>
+              </td>
               <td>{{campaign.template}}</td>
               <td>{{campaign.target}}</td>
               <td>{{campaign.status}}</td>

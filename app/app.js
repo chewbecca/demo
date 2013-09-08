@@ -1,9 +1,13 @@
 'use strict';
 
+
+
 // GLOBAL FIREBASE REFENCES (TODO: Research if it would be better to just call one Firebase and access the different directories from within the template.
 var fbMain = new Firebase("http://balihoo-demo.firebaseio.com/");
 var fbTactics = new Firebase("http://balihoo-demo.firebaseio.com/tactics");
 var fbCampaigns = new Firebase("http://balihoo-demo.firebaseio.com/campaigns");
+
+
 
 // CAMPAIGN MODULE
 var campaignApp = angular.module('campaign', ['firebase']).
@@ -12,32 +16,47 @@ var campaignApp = angular.module('campaign', ['firebase']).
 			templateUrl: 'app/views/campaign/new.html',
 			 controller: 'NewCampaignCtrl'
 		});
-		$routeProvider.when('/new-campaign', {
+		$routeProvider.when('/my-campaigns', {
 			templateUrl: 'app/views/campaign/list.html',
-			 controller: 'ListTacticCtrl'
+			 controller: 'ListCampaignCtrl'
 		});
-		$routeProvider.otherwise({redirectTo: '/new-campaign'}); // TODO: Add Auth Conditional, also place all "whens" under one routeProvider
+		$routeProvider.otherwise({redirectTo: '/my-campaigns'}); // TODO: Add Auth Conditional, also place all "whens" under one routeProvider
 	}]);
 
+
+
+// CAMPAIGN CONTROLLERS
 campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$location', 
 
 	function scopeAssignments($scope, angularFireCollection, $location){
 
+		$scope.tactics = angularFireCollection(fbTactics);
 		$scope.campaigns = angularFireCollection(fbCampaigns);
 
 		$scope.changeView = function(view) {
 			$location.path(view);
 		}
 
+		$scope.addTactic = function(){
+			console.log("Add Tactic");
+			$scope.campaignTactics.push({text:$scope.sampleModel});
+    		$scope.sampleModel = '';
+		}
+
+		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons. 
+
 }]);
 
-campaignApp.controller('ListTacticCtrl',['$scope', 'angularFireCollection', 
+campaignApp.controller('ListCampaignCtrl',['$scope', 'angularFireCollection', 
 
 	function scopeAssignments($scope, angularFireCollection){
 
 		$scope.campaigns = angularFireCollection(fbCampaigns);
+		$scope.tactics = angularFireCollection(fbTactics);
 
 }]);
+
+
 
 // TACTIC MODULE
 var tacticApp = angular.module('tactic', ['firebase']).
@@ -59,6 +78,8 @@ var tacticApp = angular.module('tactic', ['firebase']).
 
 
 
+
+// TACTIC CONTROLLERS
 tacticApp.controller('NewTacticCtrl',['$scope', 'angularFireCollection','$location', 
 
 	function scopeAssignments($scope, angularFireCollection, $location){
