@@ -38,10 +38,26 @@ campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$lo
 		}
 
 		$scope.addTactic = function(){
-			console.log("Add Tactic");
+			console.log("Added a Tactic");
+			var obj = 
 			$scope.campaignTactics.push({text:$scope.sampleModel});
     		$scope.sampleModel = '';
 		}
+
+		$scope.campaign = { 
+
+			"name" : "Sample Campaign",
+			"tactics" : [{
+
+					"name" : "First Tactic",
+					"type" : "Email"
+
+				},
+				{
+					"name" : "Second Tactic",
+					"type" : "Display Ad"
+				}]
+		};
 
 		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons. 
 

@@ -4,21 +4,14 @@
   </div>
   <div class="panel-body">
 
-    <div class="form-group">
-        <input class="form-control" placeholder="Campaign Name" ng-model="campaign.name">
-    </div>
 
-    <div class="well well-lg" ng-repeat="campaignTactic in campaignTactics">
-      <h4>{{campaignTactic.name}}</h4>
-    </div>
-
-    <div class="well well-lg">
+<div class="well well-lg">
 
       <form role="form">
 
       <div class="form-group">
         <label>Select Tactic</label><!-- ng-model="campaign.tactic"-->
-        <select class="form-control" ng-model="sampleModel">
+        <select class="form-control" ng-model="campaign.tactics">
           <option ng-repeat="tactic in tactics">{{tactic.name}}</option>
         </select>
       </div>
@@ -29,7 +22,21 @@
 
     </div><!-- /.well -->
 
+
+
+    
+
+    <div class="well well-lg" ng-repeat="poo in campaign.tactics">
+      <h4>{{poo.name}} - {{poo.type}}</h4>
+    </div>
+
+
     <form role="form" ng-submit="changeView('/my-campaigns')">
+
+    
+    <div class="form-group">
+        <input class="form-control" placeholder="Campaign Name" ng-model="campaign.name">
+    </div>
 
     <button type="submit" class="btn btn-lg btn-success" ng-click="campaigns.add(campaign)">Save Campaign</button>
 
