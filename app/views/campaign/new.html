@@ -1,3 +1,11 @@
+<!-- LOOP THROUGH TACTICS -->
+<div class="form-group">
+<div class="well well-lg" ng-repeat="foo in campaign.meta['tactics']">
+  <h4>{{foo.name}} - {{foo.type}}</h4>
+</div>
+</div>
+
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Create a New Campaign</h3>
@@ -10,12 +18,6 @@
 <input type="text" placeholder="Campaign Title" ng-model="campaign.meta['name']"/>
 </div>
 
-<!-- LOOP THROUGH TACTICS -->
-<div class="form-group">
-<div class="well well-lg" ng-repeat="foo in campaign.tactics">
-  <h4>{{foo.name}} - {{foo.type}}</h4>
-</div>
-</div>
 
 <!-- SELECT TACTIC -->
 <div class="form-group">
@@ -26,14 +28,15 @@
 
 <!-- PUSH NEW TACTICS INTO TACTIC LOOP -->
 <div class="form-group">
-<button class="btn" ng-click="campaign.meta['tactics'].push({'name': tacticSelect, 'type': 'email'})"><span class="glyphicon glyphicon-plus" ></span> Add Tactic</button>
+<button class="btn" ng-click="campaign.meta['tactics'].push({'name':tacticSelect})"><span class="glyphicon glyphicon-plus" ></span> Add Tactic</button>
 
 
 <!-- SAVE CAMPAIGN TO CAMPAIGNS FIREBASE -->
-<button class="btn btn-success" ng-click="campaigns.add(campaign)"></span> Save</button><!-- ng-click="campaigns.add(campaign)"-->
+<button class="btn btn-success" ng-click="campaigns.add(cleanUp(campaign))"></span> Save</button><!-- ng-click="campaigns.add(campaign)"-->
 </div>
 
 <h3>{{campaign}}</h3>
+
 
   </div>
 </div>

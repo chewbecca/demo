@@ -46,6 +46,14 @@ campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$lo
 
 		};
 
+		// Note: cleanUp is a hack function to remove $$hashkey which Angular implicitly adds to data when using ng-repeat.
+		$scope.cleanUp = function(obj) {
+			var output;
+			output = angular.toJson(obj);
+			output = angular.fromJson(output);
+			return output;
+		}
+
 		// TODO: Create a Local array, then push that array into an new firebase obj
 
 		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons. 
