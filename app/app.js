@@ -54,9 +54,9 @@ campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$lo
 			return output;
 		}
 
-		// TODO: Create a Local array, then push that array into an new firebase obj
+		$scope.tacticSelect = "Choose";
 
-		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons. 
+		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons.
 
 }]);
 

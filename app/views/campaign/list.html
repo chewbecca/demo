@@ -13,8 +13,6 @@
       <ul class="dropdown-menu" role="menu">
         <li><a href="#/new-campaign">Campaign</a></li>
         <li><a href="tactics.html#/new-tactic">Tactic</a></li>
-        <li><a href="#">Geography</a></li>
-        <li><a href="#">Target</a></li>
       </ul>
     </div>
      <form class="navbar-right" role="search">
@@ -43,6 +41,20 @@
           		<a class="btn btn-default btn-sm" data-toggle="modal" href="#myModal_{{$index}}">
           			Delete  <span class="glyphicon glyphicon-remove"></span>
           		</a>
+              <!-- Modal -->
+          <div class="modal fade" id="myModal_{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  Are you sure you want to delete the {{campaign.meta['name']}} campaign? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="campaigns.remove(campaign)">Delete</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
               </td>
             </tr>
           </tbody>
