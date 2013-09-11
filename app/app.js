@@ -37,27 +37,16 @@ campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$lo
 			$location.path(view);
 		}
 
-		$scope.addTactic = function(){
-			console.log("Added a Tactic");
-			var obj = 
-			$scope.campaignTactics.push({text:$scope.sampleModel});
-    		$scope.sampleModel = '';
+		// SAMPLE DATA SET
+		$scope.campaign = { "meta" : {
+
+			"tactics" : []
+
 		}
 
-		$scope.campaign = { 
-
-			"name" : "Sample Campaign",
-			"tactics" : [{
-
-					"name" : "First Tactic",
-					"type" : "Email"
-
-				},
-				{
-					"name" : "Second Tactic",
-					"type" : "Display Ad"
-				}]
 		};
+
+		// TODO: Create a Local array, then push that array into an new firebase obj
 
 		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons. 
 

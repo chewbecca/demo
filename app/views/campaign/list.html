@@ -35,14 +35,10 @@
           </thead>
           <tbody>
             <tr ng-repeat="campaign in campaigns">
-              <td>{{campaign.name}}</td>
-              <td ng-switch on="{{tactic.type}}">{{tactic.type}} - {{campaign.tactic}} 
-                <span ng-switch-when="Email" class="glyphicon glyphicon-evelope"></span>
-                <span ng-switch-when="SMS" class="glyphicon glyphicon-phone"></span>
-              </td>
-              <td>{{campaign.template}}</td>
-              <td>{{campaign.target}}</td>
-              <td>{{campaign.status}}</td>
+              <td>{{campaign.meta['name']}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
               <td>
           		<a class="btn btn-default btn-sm" data-toggle="modal" href="#myModal_{{$index}}">
           			Delete  <span class="glyphicon glyphicon-remove"></span>

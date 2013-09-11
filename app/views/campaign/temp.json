@@ -1,0 +1,57 @@
+{
+    "tactics": {
+        "-J38yHYifhAMB37FfmjT": {
+            "type": "SMS",
+            "name": "DJS Tactic"
+        },
+        "-J2pBANX9i33navLEd17": {
+            "type": "Print",
+            "name": "Tactic Two"
+        },
+        "-J38yjTcyPQY5HCJ7T2r": {
+            "type": "Email",
+            "name": "Sample Number 2"
+        },
+        "-J2qYIG2tT9TL9lMCLm4": {
+            "type": "Email",
+            "name": "Great Clips New Member Email"
+        },
+        "-J2qd8VjbiQwda-u36SE": {
+            "type": "Email",
+            "name": "Email Tactic"
+        }
+    },
+    "campaigns": [
+        {
+            "-J2qdGbRe4laYypra4dz": {
+                "name": "Email Campaign",
+                "tactic": "Email Tactic"
+            }
+        },
+        {
+            "-J2qWOkOrb_Bf_T09DqM": {
+                "date": "qwe",
+                "target": "qweqwe",
+                "name": "Kristins Campaign",
+                "template": "qe"
+            }
+        },
+        {
+            "-J2qYSQMOie9eVOv8T0J": {
+                "name": "Great Clips Campaign",
+                "tactic": "Great Clips New Member Email"
+            }
+        },
+        {
+            "-J2qWJ1UlK5DhIktOhbR": {
+                "name": "Scott's Campaign"
+            }
+        },
+        {
+            "-J2qcv2-GdBv6ucUMc49": {
+                "name": "Display",
+                "tactic": "Display Tactic"
+            }
+        }
+    ]
+}

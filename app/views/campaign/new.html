@@ -4,43 +4,36 @@
   </div>
   <div class="panel-body">
 
+<!-- TITLE THE CAMPAIGN -->
+<div class="form-group">
+<h3>{{campaign.meta['name']}}</h3>
+<input type="text" placeholder="Campaign Title" ng-model="campaign.meta['name']"/>
+</div>
 
-<div class="well well-lg">
+<!-- LOOP THROUGH TACTICS -->
+<div class="form-group">
+<div class="well well-lg" ng-repeat="foo in campaign.tactics">
+  <h4>{{foo.name}} - {{foo.type}}</h4>
+</div>
+</div>
 
-      <form role="form">
+<!-- SELECT TACTIC -->
+<div class="form-group">
+<select ng-model="tacticSelect">
+    <option ng-repeat="tactic in tactics" value="{{tactic.name}}">{{tactic.name}} ({{tactic.type}})</option>
+</select>
+</div>
 
-      <div class="form-group">
-        <label>Select Tactic</label><!-- ng-model="campaign.tactic"-->
-        <select class="form-control" ng-model="campaign.tactics">
-          <option ng-repeat="tactic in tactics">{{tactic.name}}</option>
-        </select>
-      </div>
-
-      <button class="btn" ng-click="addTactic()"><span class="glyphicon glyphicon-plus" ></span> Add Tactic</button>
-
-      </form>
-
-    </div><!-- /.well -->
-
-
-
-    
-
-    <div class="well well-lg" ng-repeat="poo in campaign.tactics">
-      <h4>{{poo.name}} - {{poo.type}}</h4>
-    </div>
+<!-- PUSH NEW TACTICS INTO TACTIC LOOP -->
+<div class="form-group">
+<button class="btn" ng-click="campaign.meta['tactics'].push({'name': tacticSelect, 'type': 'email'})"><span class="glyphicon glyphicon-plus" ></span> Add Tactic</button>
 
 
-    <form role="form" ng-submit="changeView('/my-campaigns')">
+<!-- SAVE CAMPAIGN TO CAMPAIGNS FIREBASE -->
+<button class="btn btn-success" ng-click="campaigns.add(campaign)"></span> Save</button><!-- ng-click="campaigns.add(campaign)"-->
+</div>
 
-    
-    <div class="form-group">
-        <input class="form-control" placeholder="Campaign Name" ng-model="campaign.name">
-    </div>
-
-    <button type="submit" class="btn btn-lg btn-success" ng-click="campaigns.add(campaign)">Save Campaign</button>
-
-    </form>
+<h3>{{campaign}}</h3>
 
   </div>
 </div>
