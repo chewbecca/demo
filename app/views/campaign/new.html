@@ -14,7 +14,7 @@
 <!-- LOOP THROUGH TACTICS -->
 <div class="form-group">
 <div class="well well-lg" ng-repeat="foo in campaign.meta['tactics']">
-  <span class="glyphicon glyphicon-remove pull-right" ng-click="campaign.meta['tactics'].remove($index)"></span>
+  <span class="glyphicon glyphicon-remove pull-right" ng-click="campaign.meta['tactics'].splice($index,1)"></span>
   <h4>{{foo.name}} - {{foo.type}}</h4>
 </div>
 </div>
@@ -36,8 +36,6 @@
 <button type="submit" class="btn btn-success" ng-click="campaigns.add(cleanUp(campaign))"></span> Save</button><!-- ng-click="campaigns.add(campaign)"-->
 
 </form>
-
-
 
   </div>
 </div>

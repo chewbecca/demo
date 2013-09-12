@@ -54,8 +54,6 @@ campaignApp.controller('NewCampaignCtrl',['$scope', 'angularFireCollection','$lo
 			return output;
 		}
 
-		$scope.tacticSelect = "Choose";
-
 		// TODO: Possibly build a switch that can handle transfering tactic.type and tranfering it to a boolean for icons.
 
 }]);
